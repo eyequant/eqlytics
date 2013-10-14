@@ -1,0 +1,25 @@
+{
+  "name": "eqlytics",
+  "version": "0.0.1",
+  "homepage": "https://github.com/eyequant/eqlytics",
+  "authors": [
+    "Niko Felger <niko.felger@gmail.com>"
+  ],
+  "description": "Simple AngularJS service wrapping segment.io",
+  "main": "lib/eqlytics.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.0.8"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.0.8"
+  }
+}
