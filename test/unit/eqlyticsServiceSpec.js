@@ -11,7 +11,7 @@ describe('eqlytics', function() {
     segmentioMock = {
       identify: function() {},
       track: function() {},
-      pageview: function() {},
+      page: function() {},
       alias: function() {}
     };
     // In real life, the segment.io library gets assigned to window.anlytics in index.html.
@@ -43,10 +43,10 @@ describe('eqlytics', function() {
   });
 
   it('should pass pageview calls to segmentio', function() {
-    spyOn(segmentioMock, 'pageview');
+    spyOn(segmentioMock, 'page');
     service.pageview('/upgrade');
 
-    expect(segmentioMock.pageview)
+    expect(segmentioMock.page)
       .toHaveBeenCalledWith('/upgrade');
   });
 
