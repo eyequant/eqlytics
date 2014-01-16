@@ -54,7 +54,31 @@ describe('eqlytics', function() {
     spyOn(segmentioMock, 'alias');
     service.alias('123');
 
-    expect(segmentioMock.alias).toHaveBeenCalledWith('123');
+    expect(segmentioMock.alias)
+      .toHaveBeenCalledWith('123');
+  });
+
+  it('should not pass any calls to segmentio when muted', function(){
+    spyOn(segmentioMock, 'alias');
+    spyOn(segmentioMock, 'page');
+    spyOn(segmentioMock, 'track');
+    spyOn(segmentioMock, 'identify');
+
+    service.mute();
+
+    service.alias('123');
+    service.pageview('/upgrade');
+    service.track('myEvent', { truth: 42 });
+    service.identify(123, { name: 'John', company: 'Split Image' });
+
+    expect(segmentioMock.alias)
+      .not.toHaveBeenCalled();
+    expect(segmentioMock.page)
+      .not.toHaveBeenCalled();
+    expect(segmentioMock.track)
+      .not.toHaveBeenCalled();
+    expect(segmentioMock.identify)
+      .not.toHaveBeenCalled();
   });
 
   describe('automatic pageview tracking', function() {
