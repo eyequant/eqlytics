@@ -1,6 +1,6 @@
 {
   "name": "eqlytics",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "homepage": "https://github.com/eyequant/eqlytics",
   "authors": [
     "Niko Felger <niko.felger@gmail.com>"
@@ -17,9 +17,9 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.0.8"
+    "angular": "1.2.x"
   },
   "devDependencies": {
-    "angular-mocks": "~1.0.8"
+    "angular-mocks": "1.2.x"
   }
 }

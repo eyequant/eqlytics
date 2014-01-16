@@ -1,6 +1,6 @@
 {
   "name": "eqlytics",
-  "version": "0.0.3",
+  "version": "0.2.0",
   "devDependencies": {
     "grunt": ">=0.4",
     "grunt-contrib-uglify": "~0.2.0",
@@ -10,5 +10,7 @@
     "karma-junit-reporter" : "*",
     "karma-jasmine" : "*"
   },
-  "scripts": "grunt karma"
+  "scripts": {
+    "test": "grunt karma"
+  }
 }
