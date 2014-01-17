@@ -47,7 +47,7 @@ describe('eqlytics', function() {
     service.pageview('/upgrade');
 
     expect(segmentioMock.page)
-      .toHaveBeenCalledWith('/upgrade');
+      .toHaveBeenCalledWith({path: '/upgrade'});
   });
 
   it('should pass alias calls to segmentio', function() {
