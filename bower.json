@@ -1,9 +1,10 @@
 {
   "name": "eqlytics",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/eyequant/eqlytics",
   "authors": [
-    "Niko Felger <niko.felger@gmail.com>"
+    "Niko Felger <niko.felger@gmail.com>",
+    "Felix Molitor <felix@eyequant.com>"
   ],
   "description": "Simple AngularJS service wrapping segment.io",
   "main": "lib/eqlytics.js",
