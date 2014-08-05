@@ -81,6 +81,41 @@ describe('eqlytics', function() {
       .not.toHaveBeenCalled();
   });
 
+  it('should log calls to service functions without propagation to segmentio when configured by call to "logOnly" method', function() {
+    spyOn(segmentioMock, 'alias');
+    spyOn(segmentioMock, 'page');
+    spyOn(segmentioMock, 'track');
+    spyOn(segmentioMock, 'identify');
+    spyOn(console, 'log');
+
+    service.logOnly();
+
+    service.alias('123');
+    expect(console.log.mostRecentCall.args)
+      .toEqual(['[eqlytics]', 'alias', angular.toJson(['123'])]);
+    expect(segmentioMock.alias)
+      .not.toHaveBeenCalled();
+
+    service.pageview('/upgrade');
+    expect(console.log.mostRecentCall.args)
+      .toEqual(['[eqlytics]', 'pageview', angular.toJson(['/upgrade'])]);
+    expect(segmentioMock.page)
+      .not.toHaveBeenCalled();
+
+    service.track('myEvent', { truth: 42 });
+    expect(console.log.mostRecentCall.args)
+      .toEqual(['[eqlytics]', 'track', angular.toJson(['myEvent', { truth: 42 }])]);
+    expect(segmentioMock.track)
+      .not.toHaveBeenCalled();
+
+
+    service.identify(123, { name: 'John', company: 'Split Image' });
+    expect(console.log.mostRecentCall.args)
+      .toEqual(['[eqlytics]', 'identify', angular.toJson([123, { name: 'John', company: 'Split Image' }])]);
+    expect(segmentioMock.identify)
+      .not.toHaveBeenCalled();
+  });
+
   describe('automatic pageview tracking', function() {
     var rootScope;
 
