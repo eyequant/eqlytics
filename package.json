@@ -5,10 +5,11 @@
     "grunt": ">=0.4",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-karma": "*",
-    "phantomjs" : "*",
-    "karma" : "*",
-    "karma-junit-reporter" : "*",
-    "karma-jasmine" : "*"
+    "phantomjs": "*",
+    "karma": "*",
+    "karma-junit-reporter": "*",
+    "karma-jasmine": "*",
+    "karma-phantomjs-launcher": "^0.1.4"
   },
   "scripts": {
     "test": "grunt karma"
